@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
-import Descriction from "../Descriction/Descriction";
+import Description from "../Description/Description";
 import Notification from "../Notification/Notification";
 
 function App() {
@@ -24,35 +24,19 @@ function App() {
   });
 
   const updateFeedback = (feedbackType) => {
-    if (feedbackType === "Good") {
-      setFeedBackValue({
-        ...feedBackValue,
-        good: feedBackValue.good + 1,
-      });
-    }
-
-    if (feedbackType === "Neutral") {
-      setFeedBackValue({
-        ...feedBackValue,
-        neutral: feedBackValue.neutral + 1,
-      });
-    }
-
-    if (feedbackType === "Bad") {
-      setFeedBackValue({
-        ...feedBackValue,
-        bad: feedBackValue.bad + 1,
-      });
-    }
-
     if (feedbackType === "Reset") {
       setFeedBackValue({
         good: 0,
         neutral: 0,
         bad: 0,
       });
-      window.localStorage.removeItem("saved-feedBackValue", feedBackValue);
+      window.localStorage.removeItem("saved-feedBackValue");
     }
+
+    setFeedBackValue({
+      ...feedBackValue,
+      [feedbackType]: feedBackValue[feedbackType] + 1,
+    });
   };
 
   useEffect(() => {
@@ -72,7 +56,7 @@ function App() {
   console.log(feedBackValue);
   return (
     <>
-      <Descriction
+      <Description
         title="Sip Happens Café"
         description="Please leave your feedback about our service by selecting one of the options below."
       />

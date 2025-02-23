@@ -38,7 +38,7 @@ function Options({
         <button
           className={css.border}
           onClick={() => handle(btnReset)}
-          type="reset"
+          type="button"
         >
           {btnReset}
         </button>
