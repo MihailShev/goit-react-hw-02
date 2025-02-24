@@ -31,6 +31,7 @@ function App() {
         bad: 0,
       });
       window.localStorage.removeItem("saved-feedBackValue");
+      return;
     }
 
     setFeedBackValue({
