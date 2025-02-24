@@ -1,46 +1,39 @@
 import css from "./Options.module.css";
 
-function Options({
-  btnGood,
-  btnNeutral,
-  btnBad,
-  btnReset,
-  handle,
-  feedbackTotalValue,
-}) {
+function Options({ handle, feedbackTotalValue }) {
   return (
     <div className={css.top}>
       <button
         className={css.border}
-        onClick={() => handle(btnGood)}
+        onClick={() => handle("good")}
         type="button"
       >
-        {btnGood}
+        good
       </button>
 
       <button
         className={css.border}
-        onClick={() => handle(btnNeutral)}
+        onClick={() => handle("neutral")}
         type="button"
       >
-        {btnNeutral}
+        neutral
       </button>
 
       <button
         className={css.border}
-        onClick={() => handle(btnBad)}
+        onClick={() => handle("bad")}
         type="button"
       >
-        {btnBad}
+        bad
       </button>
 
       {feedbackTotalValue ? (
         <button
           className={css.border}
-          onClick={() => handle(btnReset)}
+          onClick={() => handle("reset")}
           type="button"
         >
-          {btnReset}
+          reset
         </button>
       ) : (
         ""
